@@ -20,6 +20,8 @@ public class ProducEntity {
 
     private String description;
 
+    private Double price;
+
     private Boolean active;
 
 }
