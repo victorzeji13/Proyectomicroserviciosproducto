@@ -5,7 +5,8 @@ import lombok.Data;
 
 @Data
 @Builder
-public class RequestDto {
+public class DefaultDto {
+    private Long codigo;
 
     private String nombre;
 
@@ -13,4 +14,5 @@ public class RequestDto {
 
     private Double precio;
 
+    private Boolean activo;
 }
