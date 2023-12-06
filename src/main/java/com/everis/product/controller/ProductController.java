@@ -38,8 +38,9 @@ public class ProductController {
         return ResponseDto.builder().codigo(productEntity.getId()).precio(productEntity.getPrice()).nombre(productEntity.getName()).descripcion(productEntity.getDescription()).activo(productEntity.getActive()).build();
     }
 
-    @DeleteMapping("/product/{id}")
-    public void eliminarProdudcto(@PathVariable Long id){
-           productService.remove(id);
+    @DeleteMapping("/productdelete/{id}")
+    public void eliminarProdudcto(@PathVariable("id") Long id){
+
+        productService.remove(id);
     }
 }
