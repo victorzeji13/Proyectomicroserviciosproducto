@@ -1,10 +1,9 @@
 package com.everis.product.dto;
 
-
 import lombok.Data;
 
 @Data
-public class RequestDto {
+public class ResponseGetByIdDto {
 
     private String nombre;
 
@@ -12,4 +11,5 @@ public class RequestDto {
 
     private Double precio;
 
+    private Boolean activo;
 }
