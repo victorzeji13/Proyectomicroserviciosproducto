@@ -22,20 +22,17 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @Autowired
-    private ProductMapper productMapper;
-
      @PostMapping("/product")
     public ResponseDto insert(@RequestBody RequestDto request){
-        ProducEntity productEntity = productMapper.mapRequestToEntity(request);
+        ProducEntity productEntity = ProductMapper.MAPPER.mapRequestToEntity(request);
         ProducEntity savedProductEntity = productService.save(productEntity);
-        return productMapper.mapEntityToResponseDto(savedProductEntity);
+        return ProductMapper.MAPPER.mapEntityToResponseDto(savedProductEntity);
     }
 
     @GetMapping("/product/{id}")
     public ResponseGetByIdDto getById(@PathVariable("id") Long id){
         ProducEntity productEntity = productService.getById(id);
-        return productMapper.mapEntityToResponseGetByIdDto(productEntity);
+        return ProductMapper.MAPPER.mapEntityToResponseGetByIdDto(productEntity);
     }
 
     @DeleteMapping("/productdelete/{id}")

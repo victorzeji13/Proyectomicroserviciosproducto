@@ -6,9 +6,16 @@ import com.everis.product.dto.ResponseGetByIdDto;
 import com.everis.product.entity.ProducEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
+//@Mapper(componentModel = "spring")
 @Mapper
 public interface ProductMapper {
+
+    ProductMapper MAPPER = Mappers.getMapper( ProductMapper.class );
+
     @Mapping(source = "id" , target = "codigo")
     @Mapping(source = "name" , target = "nombre")
     @Mapping(source = "description" , target = "descripcion")
