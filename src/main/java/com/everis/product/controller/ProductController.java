@@ -11,6 +11,7 @@ import com.everis.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -33,6 +34,13 @@ public class ProductController {
     public ResponseGetByIdDto getById(@PathVariable("id") Long id){
         ProducEntity productEntity = productService.getById(id);
         return ProductMapper.MAPPER.mapEntityToResponseGetByIdDto(productEntity);
+    }
+
+    @GetMapping("/products")
+    public List<DefaultDto> getAll(){
+        Iterable<ProducEntity> listaProductos = productService.getAll();
+         return ProductMapper.MAPPER.mapListEntityToDefaultDto(listaProductos);
+
     }
 
     @DeleteMapping("/productdelete/{id}")

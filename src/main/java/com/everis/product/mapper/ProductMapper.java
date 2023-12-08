@@ -1,5 +1,6 @@
 package com.everis.product.mapper;
 
+import com.everis.product.dto.DefaultDto;
 import com.everis.product.dto.RequestDto;
 import com.everis.product.dto.ResponseDto;
 import com.everis.product.dto.ResponseGetByIdDto;
@@ -9,6 +10,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 //@Mapper(componentModel = "spring")
 @Mapper
@@ -34,5 +37,14 @@ public interface ProductMapper {
     @Mapping(source = "precio" , target = "price")
     @Mapping(constant = "true" , target = "active")
     ProducEntity mapRequestToEntity(RequestDto requestDto);
+
+    @Mapping(source = "id" , target = "codigo")
+    @Mapping(source = "name" , target = "nombre")
+    @Mapping(source = "description" , target = "descripcion")
+    @Mapping(source = "price" , target = "precio")
+    @Mapping(source = "active" , target = "activo")
+    DefaultDto mapEntityToDefaultDto(ProducEntity producEntity);
+
+    List<DefaultDto> mapListEntityToDefaultDto(Iterable<ProducEntity> producto);
 
 }
