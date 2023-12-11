@@ -27,7 +27,7 @@ public class TestProductController {
 
     @Test
     public void testGetAllSuccessfully(){
-        //1. Preparacion
+        //1. Preparacion (Mokear)
         ProducEntity producEntity1 = new ProducEntity();
         producEntity1.setId(1L);
         producEntity1.setActive(Boolean.TRUE);
@@ -35,17 +35,16 @@ public class TestProductController {
         producEntity1.setDescription("1");
         producEntity1.setPrice(1D);
         Mockito.when(productService.getAll()).thenReturn(List.of(producEntity1));
-        List<DefaultDto> productEntityList = productController.getAll();
-        //productEntityList.add(producEntity1);
 
-        //2. Ejecucion
-       // List<DefaultDto>  defaultDtoList =  productController.getAll();
+        //2. Ejecucion (Probar el metodo(llamar el metodo) )
+        List<DefaultDto>  defaultDtoList =  productController.getAll();
 
         //3. Comparacion
-        //Assertions.assertEquals(defaultDtoList.get(0).getCodigo() , 1);
-        //Assertions.assertEquals(defaultDtoList.get(0).getNombre(), "1");
-        //Assertions.assertEquals(defaultDtoList.get(0).getDescripcion(), "1");
-        //Assertions.assertEquals(defaultDtoList.get(0).getPrecio(), 1.0);
+        Assertions.assertEquals(defaultDtoList.get(0).getCodigo() , 1);
+        Assertions.assertEquals(defaultDtoList.get(0).getNombre(), "1");
+        Assertions.assertEquals(defaultDtoList.get(0).getDescripcion(), "1");
+        Assertions.assertEquals(defaultDtoList.get(0).getPrecio(), 1.0);
+        Assertions.assertEquals(defaultDtoList.get(0).getActivo() , true);
 
 
 

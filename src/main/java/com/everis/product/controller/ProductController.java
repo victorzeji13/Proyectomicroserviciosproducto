@@ -25,9 +25,9 @@ public class ProductController {
 
      @PostMapping("/product")
     public ResponseDto insert(@RequestBody RequestDto request){
-        ProducEntity productEntity = ProductMapper.MAPPER.mapRequestToEntity(request);
-        ProducEntity savedProductEntity = productService.save(productEntity);
-        return ProductMapper.MAPPER.mapEntityToResponseDto(savedProductEntity);
+        //ProducEntity productEntity = ProductMapper.MAPPER.mapRequestToEntity(request);
+        //ProducEntity savedProductEntity = productService.save(productEntity);
+        return ProductMapper.MAPPER.mapEntityToResponseDto(productService.save(ProductMapper.MAPPER.mapRequestToEntity(request)));
     }
 
     @GetMapping("/product/{id}")
@@ -38,8 +38,8 @@ public class ProductController {
 
     @GetMapping("/products")
     public List<DefaultDto> getAll(){
-        Iterable<ProducEntity> listaProductos = productService.getAll();
-         return ProductMapper.MAPPER.mapListEntityToDefaultDto(listaProductos);
+         //Iterable<ProducEntity> listaProductos = productService.getAll();
+         return ProductMapper.MAPPER.mapListEntityToDefaultDto(productService.getAll());
 
     }
 
