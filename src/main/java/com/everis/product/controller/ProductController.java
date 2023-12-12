@@ -6,16 +6,11 @@ import com.everis.product.dto.RequestDto;
 import com.everis.product.dto.ResponseGetByIdDto;
 import com.everis.product.entity.ProducEntity;
 import com.everis.product.mapper.ProductMapper;
-import com.everis.product.repository.ProductRepository;
 import com.everis.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+
 
 @RestController
 public class ProductController {
